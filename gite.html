@@ -6,7 +6,6 @@
     <title>Le Gîte Duchénier - Confort et tranquillité en nature</title>
     <meta name="description" content="Le Gîte Duchénier, situé dans un endroit de villégiature prisé par les amateurs de plein-air. Un séjour dans le confort et la tranquillité de la nature.">
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
@@ -63,19 +62,49 @@
         html {
             scroll-behavior: smooth;
         }
+        /* Styles for the fullscreen image modal */
+        .fullscreen-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .fullscreen-modal.active {
+            display: flex;
+        }
+        .fullscreen-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .close-fullscreen {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+        .gallery-image {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="bg-white font-sans text-brand-dark">
 
-    <!-- Header -->
     <header id="header" class="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-3">
-                <img src="304804052_576662680914145_5910720824347762329_n.jpg" alt="Gîte Duchénier Logo" class="h-14 w-14 rounded-full">
+                <img src="https://via.placeholder.com/56x56" alt="Gîte Duchénier Logo" class="h-14 w-14 rounded-full">
                 <span class="text-2xl font-serif text-brand-brown font-bold">Gîte Duchénier</span>
             </a>
             
-            <!-- Desktop Nav -->
             <div class="hidden md:flex space-x-8">
                 <a href="#accueil" class="nav-link-underline text-brand-dark hover:text-brand-green">Accueil</a>
                 <a href="#gite" class="nav-link-underline text-brand-dark hover:text-brand-green">Le Gîte</a>
@@ -85,7 +114,6 @@
                 <a href="#contact" class="nav-link-underline text-brand-dark hover:text-brand-green">Contact</a>
             </div>
 
-            <!-- Mobile Nav Button -->
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="hamburger focus:outline-none">
                     <span class="bar block w-6 h-0.5 bg-brand-brown"></span>
@@ -95,7 +123,6 @@
             </div>
         </nav>
         
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden">
             <a href="#accueil" class="block py-2 px-4 text-sm hover:bg-brand-green hover:text-white">Accueil</a>
             <a href="#gite" class="block py-2 px-4 text-sm hover:bg-brand-green hover:text-white">Le Gîte</a>
@@ -107,8 +134,7 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="accueil" class="relative h-[70vh] bg-cover bg-center" style="background-image: url('80866846_107109064145056_6470827891708919808_n.jpg');">
+        <section id="accueil" class="relative h-[70vh] bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1200x800');">
             <div class="absolute inset-0 bg-black/40"></div>
             <div class="relative container mx-auto px-6 h-full flex flex-col justify-center items-center text-center text-white">
                 <h1 class="text-4xl md:text-6xl font-serif font-bold drop-shadow-lg">Bienvenue au Gîte Duchénier</h1>
@@ -117,7 +143,6 @@
             </div>
         </section>
 
-        <!-- Intro Section -->
         <section class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-serif text-brand-brown">Un lieu de villégiature pour les amateurs de plein-air</h2>
@@ -127,7 +152,6 @@
             </div>
         </section>
 
-        <!-- Le Gîte Section -->
         <section id="gite" class="py-16 md:py-24 bg-brand-light">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-serif text-brand-brown text-center">Le gîte vous offre</h2>
@@ -152,23 +176,26 @@
             </div>
         </section>
 
-        <!-- Galerie Section -->
         <section id="galerie" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-serif text-brand-brown text-center">Notre Galerie</h2>
                 <div class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="IMG_2144.jpg" alt="Galerie Image 1 - Chambre" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
-                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="470242219_1134161961439756_5044302042134131496_n.jpg" alt="Galerie Image 2 - Chambre Lits Simples" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
-                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="IMG_2147.jpg" alt="Galerie Image 3 - Espace de vie" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
-                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="IMG_2148.jpg" alt="Galerie Image 4 - Coin repas" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
-                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="IMG_2149.jpg" alt="Galerie Image 5 - Salle à manger" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
-                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="IMG_2152.jpg" alt="Galerie Image 6 - Douche" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
-                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="IMG_2154.jpg" alt="Galerie Image 7 - Douche détail" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="https://via.placeholder.com/500x500" alt="Galerie Image 1 - Chambre" class="gallery-image w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="https://via.placeholder.com/500x500/1" alt="Galerie Image 2 - Chambre Lits Simples" class="gallery-image w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="https://via.placeholder.com/500x500/2" alt="Galerie Image 3 - Espace de vie" class="gallery-image w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="https://via.placeholder.com/500x500/3" alt="Galerie Image 4 - Coin repas" class="gallery-image w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="https://via.placeholder.com/500x500/4" alt="Galerie Image 5 - Salle à manger" class="gallery-image w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="https://via.placeholder.com/500x500/5" alt="Galerie Image 6 - Douche" class="gallery-image w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="https://via.placeholder.com/500x500/6" alt="Galerie Image 7 - Douche détail" class="gallery-image w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="https://via.placeholder.com/500x500/7" alt="Galerie Image 8" class="gallery-image w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="https://via.placeholder.com/500x500/8" alt="Galerie Image 9" class="gallery-image w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="https://via.placeholder.com/500x500/9" alt="Galerie Image 10" class="gallery-image w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="https://via.placeholder.com/500x500/10" alt="Galerie Image 11" class="gallery-image w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
+                    <div class="overflow-hidden rounded-lg shadow-lg aspect-w-1 aspect-h-1"><img src="https://via.placeholder.com/500x500/11" alt="Galerie Image 12" class="gallery-image w-full h-full object-cover transition-transform duration-300 hover:scale-110"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Activités Section -->
         <section id="activites" class="py-16 md:py-24 bg-brand-light">
              <div class="container mx-auto px-6">
                  <h2 class="text-3xl md:text-4xl font-serif text-brand-brown text-center">Activités à Proximité</h2>
@@ -189,7 +216,6 @@
              </div>
         </section>
         
-        <!-- Avis Section -->
         <section id="avis" class="py-16 md:py-24 bg-white">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl font-serif text-brand-brown text-center">Ce que nos visiteurs disent</h2>
@@ -213,7 +239,6 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="py-16 md:py-24 bg-brand-brown text-white">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-serif">Prêt pour une escapade?</h2>
@@ -228,7 +253,11 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <div id="fullscreen-modal" class="fullscreen-modal">
+        <span class="close-fullscreen" id="close-fullscreen">&times;</span>
+        <img src="" alt="Fullscreen Image" id="fullscreen-image">
+    </div>
+
     <footer class="bg-brand-dark text-gray-400 py-6">
         <div class="container mx-auto px-6 text-center">
             <p>&copy; 2025 Le Gîte Duchénier. Tous droits réservés.</p>
@@ -250,6 +279,29 @@
                 mobileMenuButton.classList.remove('active');
                 mobileMenu.classList.add('hidden');
             });
+        });
+
+        // Fullscreen gallery functionality
+        const galleryImages = document.querySelectorAll('.gallery-image');
+        const modal = document.getElementById('fullscreen-modal');
+        const modalImg = document.getElementById('fullscreen-image');
+        const closeBtn = document.getElementById('close-fullscreen');
+
+        galleryImages.forEach(image => {
+            image.addEventListener('click', () => {
+                modal.classList.add('active');
+                modalImg.src = image.src;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target !== modalImg) {
+                modal.classList.remove('active');
+            }
         });
     </script>
 
